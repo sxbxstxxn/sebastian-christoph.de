@@ -1,0 +1,69 @@
+{% extends "content/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+<article class="article">
+  <header class="article-header container">    
+    <h1>{{ page.title }}</h1>
+	<p class="meta">{{ page.date|date:"d.m.Y" }} · {{ page.get_verbose_name }}</p>
+    {% if page.teaser %}<p class="lead">{{ page.teaser }}</p>{% endif %}
+
+    <dl class="fact-box">	  
+      {% if page.destination %}<div><dt>Reiseziel</dt><dd>{{ page.destination }}</dd></div>{% endif %}
+      {% if page.travel_date %}<div><dt>Reisezeitraum</dt><dd>{{ page.travel_date }}</dd></div>{% endif %}
+      {% if page.provider %}<div><dt>Anbieter</dt><dd>{{ page.provider }}</dd></div>{% endif %}
+      {% if page.platform %}<div><dt>Plattform</dt><dd>{{ page.platform }}</dd></div>{% endif %}
+      {% if page.author %}<div><dt>Autor/in</dt><dd>{{ page.author }}</dd></div>{% endif %}
+      {% if page.genre %}<div><dt>Genre</dt><dd>{{ page.genre }}</dd></div>{% endif %}
+      {% if page.servings %}<div><dt>Portionen</dt><dd>{{ page.servings }}</dd></div>{% endif %}
+      {% if page.duration %}<div><dt>Dauer</dt><dd>{{ page.duration }}</dd></div>{% endif %}
+      {% if page.rating %}
+		<div><dt>Bewertung</dt><dd>{{ page.rating }}/5</dd></div>
+	  {% endif %}
+    </dl>
+  </header>
+  
+  <div class="container article-body">
+    {% if page.ingredients %}
+      <section class="ingredients">
+        <h2>Zutaten</h2>
+        {{ page.ingredients|richtext }}
+      </section>
+    {% endif %}
+
+	<div class="article-content">
+	{% for block in page.body %}
+	  {% if block.block_type == 'heading' %}
+		<h2>{{ block.value }}</h2>
+	  {% elif block.block_type == 'paragraph' %}
+		{{ block.value|richtext }}
+	  {% elif block.block_type == 'sized_image' %}
+		<div class="article-image-wrapper image-{{ block.value.size }}">
+			{% image block.value.image width-1200 class="article-image" %}
+		</div>
+	  {% elif block.block_type == 'gallery' %}
+		<div class="gallery-grid gallery-grid-{{ block.value.columns }}">
+		  {% for image in block.value.images %}
+			{% image image fill-400x300 as thumb %}
+			{% image image original as full %}
+			<a href="{{ full.url }}" class="gallery-item" data-lightbox>
+			  <img src="{{ thumb.url }}" alt="{{ image.title }}">
+			</a>
+		  {% endfor %}
+		</div>
+	  {% elif block.block_type == 'embed' %}
+		<div class="video-embed">
+		  {{ block.value }}
+		</div>
+	  {% endif %}
+	{% endfor %}
+	</div>
+
+    {% if page.tags.all %}
+      <div class="tags">
+        {% for tag in page.tags.all %}<span>{{ tag }}</span>{% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</article>
+{% endblock %}

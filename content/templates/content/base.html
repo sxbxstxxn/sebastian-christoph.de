@@ -1,0 +1,55 @@
+{% load wagtailcore_tags wagtailimages_tags static %}
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sebastian Christoph | {% block title %}{{ page.title }}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+	<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+	<link rel="apple-touch-icon" href="{% static 'favicon/apple-touch-icon.png' %}">
+	<link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">  
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Sebastians Blog – Startseite">
+      <img class="brand-logo" src="{% static 'images/logo.png' %}" alt="Sebastians Blog" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+      <span class="brand-fallback">Sebastians Blog</span>
+    </a>
+	<button class="menu-toggle" type="button" aria-label="Menü öffnen">
+	  ☰
+	</button>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="/">Home</a>
+      <a href="/reisen/">Reisen</a>
+      <a href="/filme-serien/">Filme & Serien</a>
+      <a href="/spiele/">Spiele</a>
+      <a href="/buecher/">Bücher</a>
+      <a href="/kochen/">Kochen</a>
+      <a href="/sonstiges/">Sonstiges</a>
+      <a href="/ueber-mich/">Über mich</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© {% now "Y" %} Sebastian Christoph</span>
+    <span class="footer-links"><a href="/kontakt/">Kontakt</a> · <a href="/impressum/">Impressum</a></span>
+  </div>
+</footer>
+
+<script src="{% static 'js/lightbox.js' %}"></script>
+<script src="{% static 'js/menu.js' %}"></script>
+<script src="{% static 'js/external-links.js' %}"></script>
+</body>
+</html>

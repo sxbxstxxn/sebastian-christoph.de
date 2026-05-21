@@ -1,0 +1,70 @@
+{% extends "content/base.html" %}
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    <div class="intro narrow">{{ page.intro|richtext }}</div>
+  </div>
+</section>
+
+<section class="container content-section">
+  <div class="post-list">
+    {% for post in posts %}
+	  <article class="post-card-horizontal">
+
+		{% if post.specific.hero_image %}
+		  <a href="{% pageurl post %}" class="post-card-thumb">
+			{% image post.specific.hero_image width-320 class="card-image" %}
+		  </a>
+		{% else %}
+		  <div class="post-card-thumb placeholder-thumb">
+			Kein Titelbild vorhanden
+		  </div>
+		{% endif %}
+
+		<div class="post-card-content">
+		<div class="post-meta-row">
+
+		  <p class="meta">
+			{{ post.specific.date|date:"d.m.Y" }}
+		  </p>
+
+		  {% if post.specific.provider %}
+			<div class="provider-badge">
+				<img src="{% static 'images/providers/' %}{{ post.specific.provider }}.png"
+					alt="{{ post.specific.get_provider_display }}"
+					title="{{ post.specific.get_provider_display }}"
+					class="provider-logo">
+			</div>
+		  {% endif %}
+
+		</div>
+		  
+
+
+		  <h2>
+			<a href="{% pageurl post %}">
+			  {{ post.title }}
+			</a>
+		  </h2>
+
+		  {% if post.specific.teaser %}
+			<p>{{ post.specific.teaser }}</p>
+		  {% endif %}
+		  
+		  {% if post.specific.rating and post.specific.get_verbose_name == "Filme & Serien" %}
+			<p class="star-rating" aria-label="Bewertung: {{ post.specific.rating }} von 5 Sternen">
+				{% for i in "12345" %}
+				  {% if forloop.counter <= post.specific.rating %}★{% else %}☆{% endif %}
+				{% endfor %}
+			</p>
+		  {% endif %}
+		</div>
+
+	  </article>
+	{% endfor %}
+  </div>
+</section>
+{% endblock %}

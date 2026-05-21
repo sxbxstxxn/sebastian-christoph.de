@@ -1,0 +1,13 @@
+{% extends "wagtailadmin/admin_base.html" %}
+{% load static %}
+
+{% block branding_favicon %}
+<link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+<link rel="apple-touch-icon" href="{% static 'favicon/apple-touch-icon.png' %}">
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+<script src="{% static 'js/admin-title.js' %}"></script>
+{% endblock %}
