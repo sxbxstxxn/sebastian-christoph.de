@@ -11,3 +11,8 @@
 {{ block.super }}
 <script src="{% static 'js/admin-title.js' %}"></script>
 {% endblock %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}

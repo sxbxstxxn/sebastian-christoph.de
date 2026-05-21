@@ -1,0 +1,31 @@
+.sidebar-wagtail-branding__icon-wrapper {
+    background-image: url("/static/images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.sidebar-wagtail-branding__icon-wrapper svg {
+    display: none !important;
+}
+
+.sidebar-wagtail-branding__icon-wrapper {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.sidebar-wagtail-branding__icon-wrapper::before,
+.sidebar-wagtail-branding__icon-wrapper::after {
+    display: none !important;
+    content: none !important;
+}
+
+.sidebar-wagtail-branding {
+	margin:25px !important;
+	margin-top:0px !important;
+	margin-bottom:50px !important;
+}
