@@ -25,7 +25,8 @@
       <a class="post-card post-card-link" href="{% pageurl post %}">
         <article>
           {% if post.specific.hero_image %}
-            {% image post.specific.hero_image width-480 class="post-card-image" %}
+            {% image post.specific.hero_image original as card_image %}
+            <img src="{{ card_image.url }}" alt="{{ post.specific.hero_image.title }}" class="post-card-image">
           {% endif %}
           <p class="meta">{{ post.specific.date|date:"d.m.Y" }} &middot; {{ post.specific.get_verbose_name }}</p>
           <h3>{{ post.title }}</h3>

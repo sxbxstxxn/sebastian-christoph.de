@@ -2,11 +2,10 @@
 
 <div class="gallery-grid gallery-grid-{{ value.columns }}">
   {% for image in value.images %}
-    {% image image width-400 as thumb %}
     {% image image original as full %}
 
     <a href="{{ full.url }}" class="gallery-item" data-lightbox>
-      <img src="{{ thumb.url }}" alt="{{ image.title }}">
+      <img src="{{ full.url }}" alt="{{ image.title }}">
     </a>
   {% endfor %}
 </div>
