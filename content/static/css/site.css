@@ -270,6 +270,16 @@ h3 {
   border-top: 3px solid var(--ink);
 }
 
+.post-card-image {
+  display: block;
+  width: 100%;
+  height: 150px;
+  margin: 0 0 18px;
+  object-fit: contain;
+  background: #f7f7f7;
+  border: 1px solid var(--line);
+}
+
 .post-card p,
 .list-card p {
   color: var(--muted);
@@ -718,6 +728,10 @@ dd {
   .hero-card,
   .fact-box {
     padding: 1rem;
+  }
+
+  .post-card-image {
+    margin-bottom: 1rem;
   }
 
   .meta,

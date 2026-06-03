@@ -1,5 +1,5 @@
 {% extends "content/base.html" %}
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
 <section class="hero">
@@ -7,7 +7,6 @@
     <div>
       <h1>{{ page.title }}</h1>
       <div class="intro">{{ page.intro|richtext }}</div>
-
     </div>
     <aside class="hero-card">
       <img alt="me.jpg" class="article-image" src="/static/images/me.jpg" width="250">
@@ -18,20 +17,23 @@
 <section id="neueste" class="container content-section">
   <div class="section-heading">
     <p class="eyebrow">Aktuell</p>
-    <h2>Neueste Einträge</h2>
+    <h2>Neueste Eintr&auml;ge</h2>
   </div>
 
   <div class="post-grid">
     {% for post in latest_posts %}
       <a class="post-card post-card-link" href="{% pageurl post %}">
-		<article>
-			<p class="meta">{{ post.specific.date|date:"d.m.Y" }} · {{ post.specific.get_verbose_name }}</p>
-			<h3>{{ post.title }}</h3>
-			{% if post.specific.teaser %}<p>{{ post.specific.teaser }}</p>{% endif %}
-		 </article>
-	  </a>
+        <article>
+          {% if post.specific.hero_image %}
+            {% image post.specific.hero_image width-480 class="post-card-image" %}
+          {% endif %}
+          <p class="meta">{{ post.specific.date|date:"d.m.Y" }} &middot; {{ post.specific.get_verbose_name }}</p>
+          <h3>{{ post.title }}</h3>
+          {% if post.specific.teaser %}<p>{{ post.specific.teaser }}</p>{% endif %}
+        </article>
+      </a>
     {% empty %}
-      <p>Noch keine Beiträge vorhanden.</p>
+      <p>Noch keine Beitr&auml;ge vorhanden.</p>
     {% endfor %}
   </div>
 </section>
