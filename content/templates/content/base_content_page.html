@@ -1,6 +1,21 @@
 {% extends "content/base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
+{% block extra_head %}
+<style>
+  .article-image-wrapper {
+    width: var(--article-image-width, 100%);
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .article-image-wrapper {
+      width: 100%;
+    }
+  }
+</style>
+{% endblock %}
+
 {% block content %}
 <article class="article">
   <header class="article-header container">    
@@ -38,7 +53,7 @@
 	  {% elif block.block_type == 'paragraph' %}
 		{{ block.value|richtext }}
 	  {% elif block.block_type == 'sized_image' %}
-		<div class="article-image-wrapper image-{{ block.value.size }}">
+		<div class="article-image-wrapper image-{{ block.value.size }}" style="--article-image-width: {% if block.value.size == 'medium' %}66.666%{% elif block.value.size == 'small' %}33.333%{% else %}100%{% endif %};">
 			{% image block.value.image width-1200 class="article-image" %}
 		</div>
 	  {% elif block.block_type == 'gallery' %}
