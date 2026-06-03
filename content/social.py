@@ -12,6 +12,10 @@ class FacebookPublishError(Exception):
     pass
 
 
+class InstagramPublishError(Exception):
+    pass
+
+
 def get_public_page_url(page, request=None):
     base_url = os.getenv("PUBLIC_SITE_URL")
     if base_url:
@@ -27,6 +31,11 @@ def get_public_page_url(page, request=None):
     return urljoin(base_url.rstrip("/") + "/", page.url.lstrip("/"))
 
 
+def get_public_media_url(path):
+    base_url = os.getenv("PUBLIC_SITE_URL") or settings.WAGTAILADMIN_BASE_URL
+    return urljoin(base_url.rstrip("/") + "/", path.lstrip("/"))
+
+
 def build_facebook_message(page):
     message_parts = [page.title]
 
@@ -34,6 +43,17 @@ def build_facebook_message(page):
         message_parts.append(page.teaser)
 
     return "\n\n".join(message_parts)
+
+
+def build_instagram_caption(page, request=None):
+    caption_parts = [page.title]
+
+    if page.teaser:
+        caption_parts.append(page.teaser)
+
+    caption_parts.append(get_public_page_url(page, request))
+
+    return "\n\n".join(caption_parts)
 
 
 def publish_page_to_facebook(page, request=None):
@@ -72,3 +92,68 @@ def publish_page_to_facebook(page, request=None):
         raise FacebookPublishError(f"Facebook-Antwort ohne Post-ID: {payload}")
 
     return post_id
+
+
+def get_instagram_image_url(page):
+    if not page.hero_image_id:
+        raise InstagramPublishError("Instagram benoetigt ein Titelbild.")
+
+    rendition = page.hero_image.get_rendition("fill-1080x1080|format-jpeg|jpegquality-90")
+    return get_public_media_url(rendition.url)
+
+
+def publish_page_to_instagram(page, request=None):
+    instagram_user_id = os.getenv("INSTAGRAM_USER_ID")
+    access_token = os.getenv("INSTAGRAM_ACCESS_TOKEN")
+
+    if not instagram_user_id or not access_token:
+        raise InstagramPublishError(
+            "INSTAGRAM_USER_ID und INSTAGRAM_ACCESS_TOKEN muessen gesetzt sein."
+        )
+
+    create_response = requests.post(
+        f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{instagram_user_id}/media",
+        data={
+            "image_url": get_instagram_image_url(page),
+            "caption": build_instagram_caption(page, request),
+            "access_token": access_token,
+        },
+        timeout=30,
+    )
+    create_payload = parse_graph_response(create_response, InstagramPublishError)
+    creation_id = create_payload.get("id")
+
+    if not creation_id:
+        raise InstagramPublishError(f"Instagram-Antwort ohne Creation-ID: {create_payload}")
+
+    publish_response = requests.post(
+        f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{instagram_user_id}/media_publish",
+        data={
+            "creation_id": creation_id,
+            "access_token": access_token,
+        },
+        timeout=30,
+    )
+    publish_payload = parse_graph_response(publish_response, InstagramPublishError)
+    media_id = publish_payload.get("id")
+
+    if not media_id:
+        raise InstagramPublishError(f"Instagram-Antwort ohne Media-ID: {publish_payload}")
+
+    return media_id
+
+
+def parse_graph_response(response, error_class):
+    try:
+        payload = response.json()
+    except ValueError as error:
+        raise error_class(
+            f"Meta hat keine gueltige JSON-Antwort geliefert: {response.text[:500]}"
+        ) from error
+
+    if response.status_code >= 400 or "error" in payload:
+        error_payload = payload.get("error", payload)
+        message = error_payload.get("message", str(error_payload))
+        raise error_class(message)
+
+    return payload

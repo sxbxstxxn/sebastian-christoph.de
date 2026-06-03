@@ -71,6 +71,9 @@ class BaseContentPage(Page):
     publish_to_facebook = models.BooleanField("Auf Facebook veröffentlichen", default=False)
     facebook_post_id = models.CharField("Facebook Post-ID", max_length=255, blank=True, editable=False)
     facebook_last_error = models.TextField("Letzter Facebook-Fehler", blank=True, editable=False)
+    publish_to_instagram = models.BooleanField("Auf Instagram veröffentlichen", default=False)
+    instagram_media_id = models.CharField("Instagram Media-ID", max_length=255, blank=True, editable=False)
+    instagram_last_error = models.TextField("Letzter Instagram-Fehler", blank=True, editable=False)
     
     body = StreamField([
         ("heading", blocks.CharBlock(
@@ -140,6 +143,9 @@ class BaseContentPage(Page):
             FieldPanel("publish_to_facebook"),
             FieldPanel("facebook_post_id", read_only=True),
             FieldPanel("facebook_last_error", read_only=True),
+            FieldPanel("publish_to_instagram"),
+            FieldPanel("instagram_media_id", read_only=True),
+            FieldPanel("instagram_last_error", read_only=True),
         ], heading="Social Media"),
         FieldPanel("body"),
     ]
