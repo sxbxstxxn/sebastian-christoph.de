@@ -1,4 +1,5 @@
 import os
+import time
 from urllib.parse import urljoin
 
 import requests
@@ -126,6 +127,8 @@ def publish_page_to_instagram(page, request=None):
     if not creation_id:
         raise InstagramPublishError(f"Instagram-Antwort ohne Creation-ID: {create_payload}")
 
+    wait_for_instagram_container(creation_id, access_token)
+
     publish_response = requests.post(
         f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{instagram_user_id}/media_publish",
         data={
@@ -141,6 +144,36 @@ def publish_page_to_instagram(page, request=None):
         raise InstagramPublishError(f"Instagram-Antwort ohne Media-ID: {publish_payload}")
 
     return media_id
+
+
+def wait_for_instagram_container(creation_id, access_token, attempts=6, delay=2):
+    last_payload = None
+
+    for _ in range(attempts):
+        response = requests.get(
+            f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{creation_id}",
+            params={
+                "fields": "status_code,status",
+                "access_token": access_token,
+            },
+            timeout=15,
+        )
+        payload = parse_graph_response(response, InstagramPublishError)
+        last_payload = payload
+        status_code = payload.get("status_code")
+
+        if status_code == "FINISHED":
+            return
+
+        if status_code in {"ERROR", "EXPIRED"}:
+            message = payload.get("status") or status_code
+            raise InstagramPublishError(f"Instagram-Media-Container konnte nicht verarbeitet werden: {message}")
+
+        time.sleep(delay)
+
+    raise InstagramPublishError(
+        f"Instagram-Media-Container ist noch nicht bereit: {last_payload}"
+    )
 
 
 def parse_graph_response(response, error_class):
