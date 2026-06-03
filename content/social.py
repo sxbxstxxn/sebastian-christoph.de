@@ -13,13 +13,17 @@ class FacebookPublishError(Exception):
 
 
 def get_public_page_url(page, request=None):
+    base_url = os.getenv("PUBLIC_SITE_URL")
+    if base_url:
+        return urljoin(base_url.rstrip("/") + "/", page.url.lstrip("/"))
+
     if page.full_url:
         return page.full_url
 
     if request is not None:
         return request.build_absolute_uri(page.url)
 
-    base_url = os.getenv("PUBLIC_SITE_URL") or settings.WAGTAILADMIN_BASE_URL
+    base_url = settings.WAGTAILADMIN_BASE_URL
     return urljoin(base_url.rstrip("/") + "/", page.url.lstrip("/"))
 
 
