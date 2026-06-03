@@ -1,0 +1,378 @@
+[
+{
+  "model": "wagtailcore.page",
+  "pk": 9,
+  "fields": {
+    "path": "000100010006",
+    "depth": 3,
+    "numchild": 6,
+    "translation_key": "cc51ecb8-c9d3-4703-85d6-9189290ac527",
+    "locale": 1,
+    "latest_revision": 7,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-05-20T11:55:21.240Z",
+    "last_published_at": "2026-05-20T11:55:21.240Z",
+    "live_revision": 7,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Sonstiges",
+    "draft_title": "Sonstiges",
+    "slug": "sonstiges",
+    "content_type": [
+      "content",
+      "sectionindexpage"
+    ],
+    "url_path": "/home/sonstiges/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-05-20T11:55:21.221Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 48,
+  "fields": {
+    "path": "0001000100060001",
+    "depth": 4,
+    "numchild": 0,
+    "translation_key": "3f7478c8-f1f9-4f85-8524-c17971e767ec",
+    "locale": 1,
+    "latest_revision": 107,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-05-20T12:42:08.427Z",
+    "last_published_at": "2026-05-20T15:23:49.770Z",
+    "live_revision": 107,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Bunker Humboldthain",
+    "draft_title": "Bunker Humboldthain",
+    "slug": "bunker-humboldthain",
+    "content_type": [
+      "content",
+      "blogpage"
+    ],
+    "url_path": "/home/sonstiges/bunker-humboldthain/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-05-20T15:23:49.721Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 49,
+  "fields": {
+    "path": "0001000100060002",
+    "depth": 4,
+    "numchild": 0,
+    "translation_key": "c544d627-58df-4e72-96b4-4b27716bc135",
+    "locale": 1,
+    "latest_revision": 214,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-05-20T12:42:11.345Z",
+    "last_published_at": "2026-05-20T20:37:57.025Z",
+    "live_revision": 214,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Einbauschrank - Phase 1",
+    "draft_title": "Einbauschrank - Phase 1",
+    "slug": "einbauschrank-phase-1",
+    "content_type": [
+      "content",
+      "blogpage"
+    ],
+    "url_path": "/home/sonstiges/einbauschrank-phase-1/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-05-20T20:37:56.951Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 50,
+  "fields": {
+    "path": "0001000100060003",
+    "depth": 4,
+    "numchild": 0,
+    "translation_key": "d8d2c022-2f90-4d20-b1f9-dfd4d1c8a963",
+    "locale": 1,
+    "latest_revision": 216,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-05-20T12:42:14.194Z",
+    "last_published_at": "2026-05-20T20:38:10.202Z",
+    "live_revision": 216,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Einbauschrank - Phase 2",
+    "draft_title": "Einbauschrank - Phase 2",
+    "slug": "einbauschrank-phase-2",
+    "content_type": [
+      "content",
+      "blogpage"
+    ],
+    "url_path": "/home/sonstiges/einbauschrank-phase-2/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-05-20T20:38:10.146Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 51,
+  "fields": {
+    "path": "0001000100060004",
+    "depth": 4,
+    "numchild": 0,
+    "translation_key": "80986f25-3928-4fea-ab83-12150e63f716",
+    "locale": 1,
+    "latest_revision": 218,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-05-20T12:42:16.204Z",
+    "last_published_at": "2026-05-20T20:38:27.211Z",
+    "live_revision": 218,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Einbauschrank - Phase 3",
+    "draft_title": "Einbauschrank - Phase 3",
+    "slug": "einbauschrank-phase-3",
+    "content_type": [
+      "content",
+      "blogpage"
+    ],
+    "url_path": "/home/sonstiges/einbauschrank-phase-3/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-05-20T20:38:27.125Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 52,
+  "fields": {
+    "path": "0001000100060005",
+    "depth": 4,
+    "numchild": 0,
+    "translation_key": "b891ad83-7a13-4ea4-aab1-c424e37019a4",
+    "locale": 1,
+    "latest_revision": 66,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-05-20T12:42:23.509Z",
+    "last_published_at": "2026-05-20T13:54:20.204Z",
+    "live_revision": 66,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "Flosstour auf der Havel",
+    "draft_title": "Flosstour auf der Havel",
+    "slug": "flosstour-auf-der-havel",
+    "content_type": [
+      "content",
+      "blogpage"
+    ],
+    "url_path": "/home/sonstiges/flosstour-auf-der-havel/",
+    "owner": null,
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-05-20T13:54:20.139Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "wagtailcore.page",
+  "pk": 55,
+  "fields": {
+    "path": "0001000100060006",
+    "depth": 4,
+    "numchild": 0,
+    "translation_key": "825a21cc-a7eb-4168-82f6-8c5a64d985fd",
+    "locale": 1,
+    "latest_revision": 249,
+    "live": true,
+    "has_unpublished_changes": false,
+    "first_published_at": "2026-06-03T13:27:41.742Z",
+    "last_published_at": "2026-06-03T13:28:26.983Z",
+    "live_revision": 249,
+    "go_live_at": null,
+    "expire_at": null,
+    "expired": false,
+    "locked": false,
+    "locked_at": null,
+    "locked_by": null,
+    "title": "test",
+    "draft_title": "test",
+    "slug": "test",
+    "content_type": [
+      "content",
+      "miscpage"
+    ],
+    "url_path": "/home/sonstiges/test/",
+    "owner": [
+      "sxbxstxxn"
+    ],
+    "seo_title": "",
+    "show_in_menus": false,
+    "search_description": "",
+    "latest_revision_created_at": "2026-06-03T13:28:26.941Z",
+    "alias_of": null
+  }
+},
+{
+  "model": "content.sectionindexpage",
+  "pk": 9,
+  "fields": {
+    "intro": "Alles, was sonst noch erlebt werden will."
+  }
+},
+{
+  "model": "content.basecontentpage",
+  "pk": 48,
+  "fields": {
+    "date": "2023-06-16",
+    "teaser": "Diesmal \"beruflich\" unterwegs. Teamtag mit Kultur und Geschichte...",
+    "hero_image": 178,
+    "publish_to_facebook": false,
+    "facebook_post_id": "",
+    "facebook_last_error": "",
+    "body": "[{\"id\": \"018d9970-2eb1-4aef-a624-9f5c373e91f6\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"dlrc4\\\">Zum Teamtag mit den Kollegen waren wir in den Berliner Unterwelten. Der Bunker im Humboldthain. Viel Berg, viele Stufen, aber auch viel gelernt. Leider nur ein paar Fotos, weil im Inneren das Fotografieren eigentlich verboten ist (pssstt!)</p>\"}, {\"id\": \"523c1159-cb36-46f8-89d3-ec6cc3b3a684\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"07560c60-2c5d-48a0-ba73-ee05fa13d0c8\", \"type\": \"item\", \"value\": 177}, {\"id\": \"62a86bca-f31b-43c2-b7d5-56f624d0a81b\", \"type\": \"item\", \"value\": 178}, {\"id\": \"3280d44b-6066-4df0-861a-b0ef8c17fd2a\", \"type\": \"item\", \"value\": 179}, {\"id\": \"ea43a435-5f7a-43b7-b4e3-09d110c067f8\", \"type\": \"item\", \"value\": 180}, {\"id\": \"95fd4230-7c4d-478e-9c27-bf38329439ca\", \"type\": \"item\", \"value\": 181}, {\"id\": \"7e03fc65-ead1-46a1-8006-29264f76f1b0\", \"type\": \"item\", \"value\": 182}, {\"id\": \"57af2f6d-d30c-41b1-92ab-9a0d309a9b60\", \"type\": \"item\", \"value\": 183}], \"columns\": \"3\"}}]"
+  }
+},
+{
+  "model": "content.basecontentpage",
+  "pk": 49,
+  "fields": {
+    "date": "2024-08-01",
+    "teaser": "Ich baue mir einen Einbauschrank mit speziellen Eigenschaften",
+    "hero_image": 188,
+    "publish_to_facebook": false,
+    "facebook_post_id": "",
+    "facebook_last_error": "",
+    "body": "[{\"id\": \"fca768de-90ca-48d6-a3c9-dde6daf7d181\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"775fo\\\">F\\u00fcr mein Hobby 3D Druck brauche ich einen Platz um den Drucker (und evt. noch weitere folgende) unterzubringen. Die Idee: Ich nutze die ca 1,80m x 2,40m gro\\u00dfe Niesche in meinem Arbeitszimmer und baue mir dort selbst einen Einbauschrank. In voller H\\u00f6he und Breite. Das bedeutet aber auch (was mir erst sp\\u00e4ter bewusst wurde), dass ich nicht mit den typischen Holzd\\u00fcbel Verbindungen arbeiten kann, weil die Schrankw\\u00e4nde ja die volle H\\u00f6he nutzen und ich sie nicht auf die Holzd\\u00fcbel stecken kann. Vorher zusammenbauen und dann dort hinschieben geht auch nicht, weil zu wenig Platz ist. Also blieb nur der Weg \\u00fcber viele Metallwinkel.</p>\"}, {\"id\": \"f4c8c594-29c1-4778-b310-8da433963a60\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"3drnk\\\">Au\\u00dferdem ist der Plan noch den gesamten Schrank innen mit schallisolierendem Material zu \\\"tapezieren\\\" um die Ger\\u00e4usche w\\u00e4hrend des Druckens m\\u00f6glichst im Schrank zu belassen. Durchaus wichtig, da es sich ja um das Arbeitszimmer handelt und somit der Druck auch w\\u00e4hrend der Home Office Meetings weitergehen kann.</p>\"}, {\"id\": \"c2cb9062-e784-4829-9374-f669900296cf\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"n4pvx\\\">Also erstmal eine rudiment\\u00e4re Planung in Excel gemacht und entsprechend Spanplatten besorgt. Es plagte mich anfangs die Frage welche Holzplatten ich nehmen soll... MDF? Multiplex? Spanplatten? Im Endeffekt sind es dann auch aus Kostengr\\u00fcnden die Spanplatten geworden in 19mm St\\u00e4rke. Robust, g\\u00fcnstig und f\\u00fcr so ein Anf\\u00e4ngerprojekt geeignet.</p>\"}, {\"id\": \"5fb8118e-7986-47e1-9906-546578e88a10\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"rlnkn\\\">Man h\\u00e4tte nat\\u00fcrlich einfach die W\\u00e4nde weglassen k\\u00f6nnen und nur T\\u00fcren bauen, aber irgendwie hatte ich mir das anders in den Kopf gesetzt, auch um ein wenig die schiefen W\\u00e4nde auszugleichen. Also Schrank mit \\\"Vollummantelung\\\" :D</p>\"}, {\"id\": \"17f34881-821e-4cb6-a7f2-f366a3e6b8c0\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"zkh5q\\\">Als erstes den Boden verlegen, das war wohl das simpelste. Dann die R\\u00fcckw\\u00e4nde aufstellen und an der Wand befestigen. Nat\\u00fcrlich alles mit der Wasserwaage. Anschlie\\u00dfend die Seitenw\\u00e4nde, die ebenfalls an der Wand befestigt werden. Auf der linken Seite war das noch etwas problematisch, befindet sich dort doch nur eine schmale Trockenbauwand (die ich auch selbst errichtet hatte) und ausgerechnet dort auch eine innen liegende Schiebet\\u00fcr, was ein Verschrauben nur weiter oben m\\u00f6glich machte. Aber auch das war dann im Endeffekt kein Problem, alles h\\u00e4lt, alles mega stabil. Au\\u00dferdem befindet sich an der linken Wand eine Steckdose und da hatte ich mir auch in den Kopf gesetzt nicht nur einfach ein Loch zu machen sondern die Steckdose innen am Schrank anzubringen. Also ein entsprechendes Loch mit der Stichs\\u00e4ge ausgeschnitten, die Steckdose rangehalten und... FAIL. Das Loch war zu gro\\u00df. Also habe ich etwas improvisiert und ein Teil des Ausschnitts wieder mit Schrauben und Holzleim eingesetzt. Damit ging es dann. Zum Gl\\u00fcck ist das eine Stelle im Schrank (ganz oben, hinten im Fach), die man nicht so oft zu Sehen bekommen wird.</p>\"}, {\"id\": \"a5f28bf6-32a9-4c6b-a9f1-496589fae6ca\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"r2wai\\\">Schlie\\u00dflich noch die Mittelwand. Da diese aufgrund der noch fehlenden Decke ein wenig k\\u00fcrzer ist konnte ich hier mit Holzd\\u00fcbelverbindungen arbeiten und diese auf die Bodenplatte stecken. Das gibt zus\\u00e4tzliche Stabilit\\u00e4t, dennoch werde ich zus\\u00e4tzlich Winkel anbringen.</p>\"}, {\"id\": \"7b0ad0b9-26ff-4476-ba4f-9dd90ceb7b8d\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"9hehq\\\">Zu guter letzt nur noch die Decke... so der Gedanke. Leider stellte ich fest, dass trotz Wasserwaage, nicht alles so gerade ist wie erhofft. An der linken Seitenwand ist oben nicht genug Platz um die Deckenplatte reinzuschieben. Also die Seitenwand noch einmal raus, mit der Kreiss\\u00e4ge und Schleifmaschine etwas korrigiert, wieder rein und schon sieht das besser aus.</p>\"}, {\"id\": \"16336071-6773-4129-8594-2fcccf7b341c\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"3s2g0\\\">Beim Hineinschieben der Decke dann ein kurzer Schreckmoment... auf halbem Weg blieb sie stecken und ging nicht weiter... aber hier halt ein wenig Gewalt. Nochmal raus und mit Schwung reinschieben und es passte. Die unz\\u00e4hligen Winkel anbringen verschaffte einem Muskelkater, aber dann war Phase 1 beendet.</p>\"}, {\"id\": \"f1cf8f36-0da7-4994-af0b-393621673bb2\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"a6b0de86-63ed-4a06-92c7-b24530a28caf\", \"type\": \"item\", \"value\": 185}, {\"id\": \"22c59236-ca02-439d-900f-969d75345754\", \"type\": \"item\", \"value\": 186}, {\"id\": \"d2c17c10-960d-4975-9734-d906bf8f2864\", \"type\": \"item\", \"value\": 187}, {\"id\": \"a7886fa5-7673-416f-aa79-cffb914b7fa6\", \"type\": \"item\", \"value\": 188}, {\"id\": \"9995163f-eb89-481c-a1ed-553d355f3d98\", \"type\": \"item\", \"value\": 189}, {\"id\": \"35afa251-a02b-4bd9-ac91-909e0c2cd08c\", \"type\": \"item\", \"value\": 190}, {\"id\": \"53143399-78a8-4c57-abfa-d29d483d6b66\", \"type\": \"item\", \"value\": 191}, {\"id\": \"47a93edf-6965-4fd1-96be-fa6f25997353\", \"type\": \"item\", \"value\": 192}], \"columns\": \"3\"}}, {\"id\": \"10ec4f2a-f410-4195-ba63-95ce56ab07ba\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"9iltj\\\">Weiter geht es dann sp\\u00e4ter mit <a linktype=\\\"page\\\" id=\\\"50\\\">Phase 2</a> und den weiteren Innenw\\u00e4nden. <a linktype=\\\"page\\\" id=\\\"51\\\">Phase 3</a> wird der Schallschutz und T\\u00fcren sein.</p>\"}]"
+  }
+},
+{
+  "model": "content.basecontentpage",
+  "pk": 50,
+  "fields": {
+    "date": "2024-08-19",
+    "teaser": "Schrauben, Schrauben, Schrauben...",
+    "hero_image": 199,
+    "publish_to_facebook": false,
+    "facebook_post_id": "",
+    "facebook_last_error": "",
+    "body": "[{\"id\": \"92f4e9e7-74b9-4cbe-8d0d-eb90abd5681d\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"nmvyp\\\">Nachdem der Rohbau au\\u00dfen fertig geworden ist, stand jetzt das innere an. Da die Platten alle kleiner waren konnte ich diese diesmal selbst beim Baumarkt abholen.</p>\"}, {\"id\": \"dbdf1b6a-47ad-4dfb-911d-958c59fefb11\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"6hvua\\\">Auch konnte ich diesmal teilweise gut mit Holzd\\u00fcbeln arbeiten. Bei den Au\\u00dfenw\\u00e4nden war das noch ein Problem, weil ich ja die komplette H\\u00f6he des Raumes abdecken wollte und man f\\u00fcr Holzd\\u00fcbel eben das Brett einmal etwas h\\u00f6her anheben m\\u00fcsste.</p>\"}, {\"id\": \"f0c690b3-7905-43c1-b04c-1c1eb3a68d50\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"68bur\\\">Trotz der Holzd\\u00fcbel habe ich es vielleicht etwas mit den Winkeln und Schrauben \\u00fcbertrieben... aber gut, so muss ich mir keine Gedanken machen was ich in die F\\u00e4cher packe, das h\\u00e4lt ! :)</p>\"}, {\"id\": \"e29a1a76-2418-46ef-8f64-11eadab56a10\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"132b708b-d020-458f-b3c8-0d6e84248730\", \"type\": \"item\", \"value\": 193}, {\"id\": \"cedab912-637c-468e-af90-8f26168d5c35\", \"type\": \"item\", \"value\": 194}, {\"id\": \"fe18fe82-a264-46c4-98cc-894b9eecbe9e\", \"type\": \"item\", \"value\": 195}, {\"id\": \"613a65da-c941-45f2-bb92-e741f73a33ab\", \"type\": \"item\", \"value\": 196}, {\"id\": \"efb0a025-1803-42c6-a887-767887cfbc4b\", \"type\": \"item\", \"value\": 197}, {\"id\": \"b658954e-b6f0-45f9-a03b-cd4112f2f090\", \"type\": \"item\", \"value\": 198}, {\"id\": \"58ef59c2-7f9a-4131-a9ab-acbab8a72098\", \"type\": \"item\", \"value\": 199}], \"columns\": \"3\"}}, {\"id\": \"22de7f73-923e-47df-b4b8-82509792047e\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"c9qj9\\\">Das linke Fach musste noch etwas \\\"umgeplant\\\" werden, da das Ger\\u00e4t dass da rein soll eine neue Version bekommen hat. Diese ist h\\u00f6her, so dass ich es beim urspr\\u00fcnglichen Plan nicht mehr h\\u00e4tte aufklappen k\\u00f6nnen. Also kurzerhand das Querbrett in der Mitte durchgeschnitten und nach oben versetzt. So waren dann auch noch 2 \\\"Zusatzregale im rechten Bereich mit drin.</p>\"}, {\"id\": \"2a25430d-f2e9-4f76-82b0-1d45bf0ad39b\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"x4xhh\\\">Im Endeffekt ist das Ergebnis dann in folgendem Video zu sehen.</p>\"}, {\"id\": \"8a4499cf-390a-451e-9030-5282c1ed2d43\", \"type\": \"embed\", \"value\": \"https://www.youtube.com/watch?v=WsWLeOTgeo4\"}, {\"id\": \"c2eeeec5-5991-441b-86c0-949ec7306506\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"e0x3v\\\">Weiter geht es mit <a linktype=\\\"page\\\" id=\\\"51\\\">Phase 3</a> (Schallschutz und T\\u00fcren)</p>\"}]"
+  }
+},
+{
+  "model": "content.basecontentpage",
+  "pk": 51,
+  "fields": {
+    "date": "2024-11-15",
+    "teaser": "Dämmung und Türen",
+    "hero_image": 206,
+    "publish_to_facebook": false,
+    "facebook_post_id": "",
+    "facebook_last_error": "",
+    "body": "[{\"id\": \"6cafec20-20e5-4864-839a-10e3e2f8c405\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"ieubs\\\">Nach kurzer New York Pause wurde es endlich final. Die meisten F\\u00e4cher wurden mit der Schalld\\u00e4mmung ausgelegt und die T\\u00fcren befestigt.</p>\"}, {\"id\": \"fcd39efa-e9f8-4128-85df-9944713490b2\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"pyvb9\\\">Ich finde es kann sich sehen lassen :)</p>\"}, {\"id\": \"50fcbd79-2401-4cb9-bfbc-39771627f8d2\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"2bf08917-49e4-4bd5-affd-e20b571658e1\", \"type\": \"item\", \"value\": 200}, {\"id\": \"b4a356da-d53d-4024-8bbf-23c4048be7ac\", \"type\": \"item\", \"value\": 201}, {\"id\": \"3ddaa179-ddf0-4440-ae0b-79c90620d0ec\", \"type\": \"item\", \"value\": 202}, {\"id\": \"e3015b39-35b6-42f2-9e8d-f46d2541e416\", \"type\": \"item\", \"value\": 203}, {\"id\": \"c032b507-ed91-46aa-83d7-577c3381c279\", \"type\": \"item\", \"value\": 204}, {\"id\": \"c9aaf0e1-33fc-4368-b25a-700ac608bc71\", \"type\": \"item\", \"value\": 205}, {\"id\": \"63a9f233-aaa7-4914-871c-0936bdf97bc9\", \"type\": \"item\", \"value\": 206}, {\"id\": \"c9776bd5-7f27-43ec-b58c-c70d3e3aad59\", \"type\": \"item\", \"value\": 207}], \"columns\": \"3\"}}]"
+  }
+},
+{
+  "model": "content.basecontentpage",
+  "pk": 52,
+  "fields": {
+    "date": "2023-06-24",
+    "teaser": "Mit der Familie eine kleine Flosstour auf der Havel. Sehr geiles Wetter, sehr entspannend :)",
+    "hero_image": 208,
+    "publish_to_facebook": false,
+    "facebook_post_id": "",
+    "facebook_last_error": "",
+    "body": "[{\"id\": \"08225ffb-c254-4361-a0ae-268df8f6d0d8\", \"type\": \"heading\", \"value\": \"Kapit\\u00e4n Basti\"}, {\"id\": \"8b18de16-4b5c-4c15-85f3-def43775a8cd\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"gotkq\\\">Ich wurde als Kapit\\u00e4n auserkoren.</p>\"}, {\"id\": \"2353addd-9f80-4062-8e35-0baaada8916f\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"e0462146-a870-47ac-b1ae-8c49bfd48293\", \"type\": \"item\", \"value\": 208}, {\"id\": \"68ff7b9b-935d-4fa0-aa6f-07c2663fe932\", \"type\": \"item\", \"value\": 209}, {\"id\": \"21d41bc3-103c-476f-b58c-6e943e84142d\", \"type\": \"item\", \"value\": 210}], \"columns\": \"3\"}}, {\"id\": \"80142aab-a6f7-4916-ad42-d0a669829b9c\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"6erxo\\\">Unser Flo\\u00df...</p>\"}, {\"id\": \"ad78b83c-014a-4223-992a-f4b732aa4653\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"25183764-16a9-4b63-b9dc-a591a981d5cd\", \"type\": \"item\", \"value\": 211}, {\"id\": \"e4ebb737-d1f7-4058-84d5-bed97cf6670a\", \"type\": \"item\", \"value\": 212}, {\"id\": \"2b5ae199-7d13-4fe1-be45-05710309288f\", \"type\": \"item\", \"value\": 213}, {\"id\": \"ab3077d6-4e70-4a47-9977-84d27add7dd7\", \"type\": \"item\", \"value\": 214}, {\"id\": \"4f4ed4a9-4c0a-4140-af6b-826ef8e5eaaa\", \"type\": \"item\", \"value\": 215}, {\"id\": \"22ad2d7f-79ca-4135-bd86-e5e349bc14ba\", \"type\": \"item\", \"value\": 216}, {\"id\": \"1d6ef0f2-15d9-46a2-959e-db264920b5f8\", \"type\": \"item\", \"value\": 217}], \"columns\": \"3\"}}, {\"id\": \"70bb496f-53a1-4b9a-bf8c-f31b9293e4dd\", \"type\": \"heading\", \"value\": \"Aussicht aufs Wasser genie\\u00dfen\"}, {\"id\": \"c4011ff8-9aa3-4a02-a6ed-2f538528d6f2\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"otmnv\\\">Egal wo man lang f\\u00e4hrt... die Aussicht kann man \\u00fcberall genie\\u00dfen. Sei es auf die Landschaft oder die beeindruckenden anderen Boote.</p>\"}, {\"id\": \"0e89487f-799e-4458-9543-37754a0dab7c\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"8f6a1101-d18d-44f0-87e8-067f12e27526\", \"type\": \"item\", \"value\": 218}, {\"id\": \"841a864a-97a1-4b0e-843c-238a9f06dd3b\", \"type\": \"item\", \"value\": 219}, {\"id\": \"461b252c-0524-4b1c-a692-2cdb93a99bdd\", \"type\": \"item\", \"value\": 220}, {\"id\": \"bda6306a-1972-4227-a0d1-8d160d7fde7a\", \"type\": \"item\", \"value\": 221}, {\"id\": \"922655b7-6793-484a-8adc-6701e1f3cab4\", \"type\": \"item\", \"value\": 222}, {\"id\": \"8a8b7fa7-c66f-4e7b-bea2-73953b90447b\", \"type\": \"item\", \"value\": 223}, {\"id\": \"029b8513-b5db-47d7-86e6-545492470484\", \"type\": \"item\", \"value\": 224}, {\"id\": \"e3f1d549-8df6-4750-8168-b5698720fb2a\", \"type\": \"item\", \"value\": 225}, {\"id\": \"10992d84-749e-400a-8aae-c38e3f88157f\", \"type\": \"item\", \"value\": 226}, {\"id\": \"16e2ea94-1caa-4ad0-a84e-7d4425108414\", \"type\": \"item\", \"value\": 227}, {\"id\": \"6f997460-4d82-4016-85b0-7911ff372de0\", \"type\": \"item\", \"value\": 228}, {\"id\": \"ae2c6fcb-6787-4ab0-aecc-c90872b9f125\", \"type\": \"item\", \"value\": 229}, {\"id\": \"34217f5c-7fd4-4057-a707-247820ee8c9c\", \"type\": \"item\", \"value\": 230}, {\"id\": \"53583fee-2bfd-44ba-9793-ce61ff4ebe80\", \"type\": \"item\", \"value\": 231}], \"columns\": \"3\"}}, {\"id\": \"a68def43-928f-4d82-bdcb-47329e90d8fc\", \"type\": \"heading\", \"value\": \"Auch schwimmen war sch\\u00f6n und erfrischend\"}, {\"id\": \"f53b32a2-d43e-4158-a7a9-5f63a153848f\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"hp52a\\\">Neben uns waren auch die Enten sehr neugierig... die kannten die Boote wohl und hofften auf ein paar Kr\\u00fcmel vom Picknick.</p>\"}, {\"id\": \"d26a200d-bf10-45c1-96f1-6009a224deca\", \"type\": \"gallery\", \"value\": {\"images\": [{\"id\": \"d0fb3e6a-2f55-4b35-b913-1186f8c70143\", \"type\": \"item\", \"value\": 232}, {\"id\": \"03a91d21-ed88-416b-8f55-9c7598aec985\", \"type\": \"item\", \"value\": 233}, {\"id\": \"952b21a9-c324-48e1-859d-41c8d4622b9e\", \"type\": \"item\", \"value\": 234}], \"columns\": \"3\"}}]"
+  }
+},
+{
+  "model": "content.basecontentpage",
+  "pk": 55,
+  "fields": {
+    "date": "2026-06-03",
+    "teaser": "tetetetet",
+    "hero_image": null,
+    "publish_to_facebook": true,
+    "facebook_post_id": "",
+    "facebook_last_error": "",
+    "body": "[{\"id\": \"454e8c87-6720-4960-a561-02241cdb244a\", \"type\": \"paragraph\", \"value\": \"<p data-block-key=\\\"aepq5\\\">testtext</p>\"}]"
+  }
+},
+{
+  "model": "content.blogpage",
+  "pk": 48,
+  "fields": {}
+},
+{
+  "model": "content.blogpage",
+  "pk": 49,
+  "fields": {}
+},
+{
+  "model": "content.blogpage",
+  "pk": 50,
+  "fields": {}
+},
+{
+  "model": "content.blogpage",
+  "pk": 51,
+  "fields": {}
+},
+{
+  "model": "content.blogpage",
+  "pk": 52,
+  "fields": {}
+},
+{
+  "model": "content.miscpage",
+  "pk": 55,
+  "fields": {}
+}
+]
