@@ -99,7 +99,7 @@ def get_instagram_image_url(page):
     if not page.hero_image_id:
         raise InstagramPublishError("Instagram benoetigt ein Titelbild.")
 
-    rendition = page.hero_image.get_rendition("fill-1080x1080|format-jpeg|jpegquality-90")
+    rendition = page.hero_image.get_rendition("max-1080x1350|format-jpeg|jpegquality-90")
     return get_public_media_url(rendition.url)
 
 
