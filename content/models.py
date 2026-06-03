@@ -68,6 +68,9 @@ class BaseContentPage(Page):
         related_name="+",
         verbose_name="Titelbild",
     )
+    publish_to_facebook = models.BooleanField("Auf Facebook veröffentlichen", default=False)
+    facebook_post_id = models.CharField("Facebook Post-ID", max_length=255, blank=True, editable=False)
+    facebook_last_error = models.TextField("Letzter Facebook-Fehler", blank=True, editable=False)
     
     body = StreamField([
         ("heading", blocks.CharBlock(
@@ -133,6 +136,11 @@ class BaseContentPage(Page):
             FieldPanel("hero_image"),
             FieldPanel("tags"),
         ], heading="Metadaten"),
+        MultiFieldPanel([
+            FieldPanel("publish_to_facebook"),
+            FieldPanel("facebook_post_id", read_only=True),
+            FieldPanel("facebook_last_error", read_only=True),
+        ], heading="Social Media"),
         FieldPanel("body"),
     ]
 

@@ -31,6 +31,21 @@ Danach:
 - Website: http://localhost:8000/
 - Admin: http://localhost:8000/admin/
 
+## Facebook-Veröffentlichung
+
+Blogbeiträge können beim Veröffentlichen automatisch als Link-Post auf einer Facebook-Seite veröffentlicht werden. Dafür im Wagtail-Admin beim Beitrag `Auf Facebook veröffentlichen` aktivieren.
+
+Benötigte Umgebungsvariablen:
+
+```env
+PUBLIC_SITE_URL=https://sebastian-christoph.de
+FACEBOOK_PAGE_ID=...
+FACEBOOK_PAGE_ACCESS_TOKEN=...
+FACEBOOK_GRAPH_VERSION=v24.0
+```
+
+`FACEBOOK_PAGE_ACCESS_TOKEN` ist geheim und darf nicht ins Repository.
+
 ## Nächste sinnvolle Schritte
 
 1. Startseite und Menü im Wagtail-Admin anlegen.
