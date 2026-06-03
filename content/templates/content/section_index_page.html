@@ -1,6 +1,10 @@
 {% extends "content/base.html" %}
 {% load wagtailcore_tags wagtailimages_tags static %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+{% endblock %}
+
 {% block content %}
 <section class="page-hero">
   <div class="container">
@@ -32,11 +36,15 @@
 		  </p>
 
 		  {% if post.specific.provider %}
-			<div class="provider-badge">
+			<div class="provider-badge" title="{{ post.specific.get_provider_display }}" aria-label="{{ post.specific.get_provider_display }}">
+			  {% if post.specific.provider == "kino" %}
+				<span class="material-symbols-outlined provider-icon" aria-hidden="true">theaters</span>
+			  {% else %}
 				<img src="{% static 'images/providers/' %}{{ post.specific.provider }}.png"
 					alt="{{ post.specific.get_provider_display }}"
 					title="{{ post.specific.get_provider_display }}"
 					class="provider-logo">
+			  {% endif %}
 			</div>
 		  {% endif %}
 

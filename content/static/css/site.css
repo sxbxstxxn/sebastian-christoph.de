@@ -392,6 +392,12 @@ h3 {
   object-fit: contain;
 }
 
+.provider-icon {
+  color: var(--accent);
+  font-size: 28px;
+  line-height: 1;
+}
+
 /* Article pages */
 .article-header {
   margin-bottom: 36px;
