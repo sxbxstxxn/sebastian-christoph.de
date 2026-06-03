@@ -573,6 +573,19 @@ dd {
   color: var(--accent);
 }
 
+/* Error pages */
+.error-page {
+  display: flex;
+  align-items: center;
+  min-height: 54vh;
+  padding: 64px 0;
+  background: #ffffff;
+}
+
+.error-page-inner {
+  max-width: 760px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .hero-grid,

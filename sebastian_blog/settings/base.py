@@ -3,7 +3,16 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-only-secret-key")
-DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+
+
+def env_bool(name, default=False):
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+DEBUG = env_bool("DJANGO_DEBUG", False)
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if h.strip()]
 
 INSTALLED_APPS = [

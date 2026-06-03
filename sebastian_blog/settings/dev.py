@@ -1,5 +1,5 @@
 from .base import *
-DEBUG = True
+DEBUG = env_bool("DJANGO_DEBUG", True)
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 CSRF_TRUSTED_ORIGINS = [
