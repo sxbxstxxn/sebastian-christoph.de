@@ -69,6 +69,16 @@ def get_facebook_backdate_params(page):
     }
 
 
+def get_facebook_picture_params(page):
+    if not page.hero_image_id:
+        return {}
+
+    rendition = page.hero_image.get_rendition("fill-1200x630|format-jpeg|jpegquality-90")
+    return {
+        "picture": get_public_media_url(rendition.url),
+    }
+
+
 def build_instagram_caption(page, request=None):
     caption_parts = [page.title]
 
@@ -110,18 +120,29 @@ def publish_page_to_facebook(page, request=None):
         "message": build_facebook_message(page),
         "link": page_url,
         "access_token": access_token,
+        **get_facebook_picture_params(page),
         **get_facebook_backdate_params(page),
     }
 
     try:
         return create_facebook_feed_post(page_id, access_token, post_data)
     except FacebookInvalidParameterError:
-        if "backdated_time" not in post_data:
+        retry_data = post_data.copy()
+        retry_data.pop("backdated_time", None)
+        retry_data.pop("backdated_time_granularity", None)
+
+        if retry_data != post_data:
+            try:
+                return create_facebook_feed_post(page_id, access_token, retry_data)
+            except FacebookInvalidParameterError:
+                pass
+
+        retry_data.pop("picture", None)
+
+        if retry_data == post_data:
             raise
 
-        post_data.pop("backdated_time", None)
-        post_data.pop("backdated_time_granularity", None)
-        return create_facebook_feed_post(page_id, access_token, post_data)
+        return create_facebook_feed_post(page_id, access_token, retry_data)
 
 
 def create_facebook_feed_post(page_id, access_token, post_data):
