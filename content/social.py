@@ -4,6 +4,7 @@ from urllib.parse import urljoin
 
 import requests
 from django.conf import settings
+from django.utils import timezone
 
 
 FACEBOOK_GRAPH_VERSION = os.getenv("FACEBOOK_GRAPH_VERSION", "v24.0")
@@ -44,6 +45,18 @@ def build_facebook_message(page):
         message_parts.append(page.teaser)
 
     return "\n\n".join(message_parts)
+
+
+def get_facebook_backdate_params(page):
+    post_date = getattr(page, "date", None)
+
+    if not post_date or post_date >= timezone.localdate():
+        return {}
+
+    return {
+        "backdated_time": post_date.isoformat(),
+        "backdated_time_granularity": "day",
+    }
 
 
 def build_instagram_caption(page, request=None):
@@ -89,6 +102,7 @@ def publish_page_to_facebook(page, request=None):
             "message": build_facebook_message(page),
             "link": page_url,
             "access_token": access_token,
+            **get_facebook_backdate_params(page),
         },
         timeout=15,
     )
