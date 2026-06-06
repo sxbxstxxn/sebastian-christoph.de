@@ -24,6 +24,7 @@
   <div class="post-list">
     {% for post in posts %}
 	  <article class="post-card-horizontal">
+		<a class="post-card-horizontal-link" href="{% pageurl post %}">
 
 		<div class="post-card-content">
 		  <div class="post-meta-row">
@@ -34,9 +35,7 @@
 			  </p>
 
 			  <h2>
-				<a href="{% pageurl post %}">
-				  {{ post.title }}
-				</a>
+				{{ post.title }}
 			  </h2>
 			</div>
 
@@ -56,9 +55,9 @@
 		  </div>
 
 		  {% if post.specific.hero_image %}
-			<a href="{% pageurl post %}" class="post-card-thumb">
+			<div class="post-card-thumb">
 			  {% image post.specific.hero_image width-320 class="card-image" %}
-			</a>
+			</div>
 		  {% else %}
 			<div class="post-card-thumb placeholder-thumb">
 			  Kein Titelbild vorhanden
@@ -79,6 +78,7 @@
 		  {% endif %}
 		  </div>
 		</div>
+		</a>
 
 	  </article>
 	{% endfor %}

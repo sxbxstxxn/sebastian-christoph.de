@@ -317,6 +317,30 @@ h3 {
   margin-bottom: 2rem;
 }
 
+.post-card-horizontal-link {
+  display: block;
+  padding: 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.post-card-horizontal-link:hover {
+  background: #fafafa;
+  border-color: var(--line);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.post-card-horizontal-link:hover h2 {
+  color: var(--accent);
+}
+
 .post-card-thumb {
   grid-area: image;
   display: flex;
