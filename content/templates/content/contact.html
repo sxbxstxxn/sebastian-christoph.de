@@ -1,0 +1,51 @@
+{% extends "content/base.html" %}
+
+{% block title %}Kontakt{% endblock %}
+
+{% block content %}
+<article class="article legal-page">
+  <header class="article-header container">
+    <h1>Kontakt</h1>
+  </header>
+
+  <div class="container article-body legal-content">
+    <form class="contact-form" method="post" novalidate>
+      {% csrf_token %}
+
+      {% if messages %}
+        <div class="form-messages">
+          {% for message in messages %}
+            <p class="form-message form-message-{{ message.tags }}">{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if form.non_field_errors %}
+        <div class="form-errors">
+          {{ form.non_field_errors }}
+        </div>
+      {% endif %}
+
+      <div class="form-field">
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+      </div>
+
+      <div class="form-field">
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+      </div>
+
+      <div class="form-field">
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+        {{ form.message }}
+        {{ form.message.errors }}
+      </div>
+
+      <button class="button" type="submit">Nachricht senden</button>
+    </form>
+  </div>
+</article>
+{% endblock %}

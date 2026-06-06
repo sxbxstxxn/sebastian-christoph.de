@@ -7,6 +7,7 @@ from django.views.generic import TemplateView
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
+from content import views as content_views
 
 handler404 = "content.views.page_not_found"
 
@@ -24,6 +25,7 @@ urlpatterns = [
         TemplateView.as_view(template_name="content/datenschutz.html"),
         name="datenschutz",
     ),
+    path("kontakt/", content_views.contact, name="contact"),
 ]
 
 if settings.DEBUG:
