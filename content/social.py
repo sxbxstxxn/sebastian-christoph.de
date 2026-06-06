@@ -57,6 +57,20 @@ def build_instagram_caption(page, request=None):
     return "\n\n".join(caption_parts)
 
 
+def refresh_facebook_link_preview(url, access_token):
+    response = requests.post(
+        f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/",
+        data={
+            "id": url,
+            "scrape": "true",
+            "access_token": access_token,
+        },
+        timeout=15,
+    )
+
+    parse_graph_response(response, FacebookPublishError)
+
+
 def publish_page_to_facebook(page, request=None):
     page_id = os.getenv("FACEBOOK_PAGE_ID")
     access_token = os.getenv("FACEBOOK_PAGE_ACCESS_TOKEN")
@@ -66,11 +80,14 @@ def publish_page_to_facebook(page, request=None):
             "FACEBOOK_PAGE_ID und FACEBOOK_PAGE_ACCESS_TOKEN muessen gesetzt sein."
         )
 
+    page_url = get_public_page_url(page, request)
+    refresh_facebook_link_preview(page_url, access_token)
+
     response = requests.post(
         f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{page_id}/feed",
         data={
             "message": build_facebook_message(page),
-            "link": get_public_page_url(page, request),
+            "link": page_url,
             "access_token": access_token,
         },
         timeout=15,
