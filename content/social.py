@@ -75,6 +75,11 @@ def build_facebook_message(page):
     return "\n\n".join(message_parts)
 
 
+def build_facebook_photo_caption(page, page_url):
+    caption_parts = [build_facebook_message(page), page_url]
+    return "\n\n".join(part for part in caption_parts if part)
+
+
 def get_facebook_backdate_params(page):
     post_date = getattr(page, "date", None)
 
@@ -100,6 +105,14 @@ def get_facebook_picture_params(page):
     return {
         "picture": get_public_media_url(rendition.url),
     }
+
+
+def get_facebook_photo_url(page):
+    if not page.hero_image_id:
+        return None
+
+    rendition = page.hero_image.get_rendition("max-1200x1200|format-jpeg|jpegquality-90")
+    return get_public_media_url(rendition.url)
 
 
 def build_instagram_caption(page, request=None):
@@ -136,6 +149,11 @@ def publish_page_to_facebook(page, request=None):
             "FACEBOOK_PAGE_ID und FACEBOOK_PAGE_ACCESS_TOKEN muessen gesetzt sein."
         )
 
+    page_url = get_public_page_url(page, request)
+
+    if page.hero_image_id:
+        return create_facebook_photo_post(page_id, access_token, page, page_url)
+
     page_url = get_facebook_page_url(page, request)
     refresh_facebook_link_preview(page_url, access_token)
 
@@ -166,6 +184,26 @@ def publish_page_to_facebook(page, request=None):
             raise
 
         return create_facebook_feed_post(page_id, access_token, retry_data)
+
+
+def create_facebook_photo_post(page_id, access_token, page, page_url):
+    response = requests.post(
+        f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{page_id}/photos",
+        data={
+            "url": get_facebook_photo_url(page),
+            "caption": build_facebook_photo_caption(page, page_url),
+            "access_token": access_token,
+        },
+        timeout=30,
+    )
+
+    payload = parse_graph_response(response, FacebookPublishError)
+    post_id = payload.get("post_id") or payload.get("id")
+
+    if not post_id:
+        raise FacebookPublishError(f"Facebook-Antwort ohne Post-ID: {payload}")
+
+    return post_id
 
 
 def create_facebook_feed_post(page_id, access_token, post_data):
