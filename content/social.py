@@ -1,5 +1,6 @@
 import os
 import time
+from datetime import datetime
 from urllib.parse import urljoin
 
 import requests
@@ -53,8 +54,13 @@ def get_facebook_backdate_params(page):
     if not post_date or post_date >= timezone.localdate():
         return {}
 
+    backdated_time = timezone.make_aware(
+        datetime.combine(post_date, datetime.min.time()),
+        timezone.get_current_timezone(),
+    )
+
     return {
-        "backdated_time": post_date.isoformat(),
+        "backdated_time": backdated_time.isoformat(),
         "backdated_time_granularity": "day",
     }
 
@@ -218,6 +224,15 @@ def parse_graph_response(response, error_class):
     if response.status_code >= 400 or "error" in payload:
         error_payload = payload.get("error", payload)
         message = error_payload.get("message", str(error_payload))
+        details = []
+
+        for key in ("type", "code", "error_subcode", "error_user_title", "error_user_msg", "fbtrace_id"):
+            if key in error_payload:
+                details.append(f"{key}: {error_payload[key]}")
+
+        if details:
+            message = f"{message} ({'; '.join(details)})"
+
         raise error_class(message)
 
     return payload
