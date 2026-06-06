@@ -311,39 +311,58 @@ h3 {
 .post-list {
   display: grid;
   gap: 0;
-  max-width: 860px;
 }
 
 .post-card-horizontal {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .post-card-thumb {
+  grid-area: image;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 240px;
-  min-width: 240px;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 4 / 3;
+  margin: 0;
   overflow: hidden;
   background: #f0f0f0;
   border-radius: 8px;
 }
 
 .post-card-content {
-  flex: 1;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-areas:
+    "image heading"
+    "image summary";
+  column-gap: 1.5rem;
+  align-items: start;
 }
 
 .post-meta-row {
+  grid-area: heading;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.post-heading {
+  min-height: 44px;
+}
+
+.post-heading .meta {
+  margin: 0 0 2px;
+  line-height: 1.1;
+}
+
+.post-heading h2 {
+  margin: 0;
+  font-size: 1.38rem;
+  line-height: 1.15;
 }
 
 .card-image {
@@ -361,6 +380,14 @@ h3 {
   font-size: 0.95rem;
   font-style: italic;
   text-align: center;
+}
+
+.post-summary {
+  grid-area: summary;
+}
+
+.post-summary p:first-child {
+  margin-top: 0;
 }
 
 .star-rating {
@@ -763,14 +790,17 @@ dd {
     font-size: 1.45rem;
   }
 
-  .fact-box,
-  .post-card-horizontal {
+  .fact-box {
     flex-direction: column;
   }
 
   .post-card-thumb {
     width: 100%;
-    min-width: 100%;
+    margin: 0 0 1rem;
+  }
+
+  .post-card-content {
+    display: block;
   }
 
   .gallery-grid-2,

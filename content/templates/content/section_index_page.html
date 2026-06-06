@@ -25,46 +25,47 @@
     {% for post in posts %}
 	  <article class="post-card-horizontal">
 
-		{% if post.specific.hero_image %}
-		  <a href="{% pageurl post %}" class="post-card-thumb">
-			{% image post.specific.hero_image width-320 class="card-image" %}
-		  </a>
-		{% else %}
-		  <div class="post-card-thumb placeholder-thumb">
-			Kein Titelbild vorhanden
-		  </div>
-		{% endif %}
-
 		<div class="post-card-content">
-		<div class="post-meta-row">
+		  <div class="post-meta-row">
 
-		  <p class="meta">
-			{{ post.specific.date|date:"d.m.Y" }}
-		  </p>
+			<div class="post-heading">
+			  <p class="meta">
+				{{ post.specific.date|date:"d.m.Y" }}
+			  </p>
 
-		  {% if post.specific.provider %}
-			<div class="provider-badge" title="{{ post.specific.get_provider_display }}" aria-label="{{ post.specific.get_provider_display }}">
-			  {% if post.specific.provider == "kino" %}
-				<span class="material-symbols-outlined provider-icon" aria-hidden="true">theaters</span>
-			  {% else %}
-				<img src="{% static 'images/providers/' %}{{ post.specific.provider }}.png"
-					alt="{{ post.specific.get_provider_display }}"
-					title="{{ post.specific.get_provider_display }}"
-					class="provider-logo">
-			  {% endif %}
+			  <h2>
+				<a href="{% pageurl post %}">
+				  {{ post.title }}
+				</a>
+			  </h2>
+			</div>
+
+			{% if post.specific.provider %}
+			  <div class="provider-badge" title="{{ post.specific.get_provider_display }}" aria-label="{{ post.specific.get_provider_display }}">
+				{% if post.specific.provider == "kino" %}
+				  <span class="material-symbols-outlined provider-icon" aria-hidden="true">theaters</span>
+				{% else %}
+				  <img src="{% static 'images/providers/' %}{{ post.specific.provider }}.png"
+					  alt="{{ post.specific.get_provider_display }}"
+					  title="{{ post.specific.get_provider_display }}"
+					  class="provider-logo">
+				{% endif %}
+			  </div>
+			{% endif %}
+
+		  </div>
+
+		  {% if post.specific.hero_image %}
+			<a href="{% pageurl post %}" class="post-card-thumb">
+			  {% image post.specific.hero_image width-320 class="card-image" %}
+			</a>
+		  {% else %}
+			<div class="post-card-thumb placeholder-thumb">
+			  Kein Titelbild vorhanden
 			</div>
 		  {% endif %}
 
-		</div>
-		  
-
-
-		  <h2>
-			<a href="{% pageurl post %}">
-			  {{ post.title }}
-			</a>
-		  </h2>
-
+		  <div class="post-summary">
 		  {% if post.specific.teaser %}
 			<p>{{ post.specific.teaser }}</p>
 		  {% endif %}
@@ -76,6 +77,7 @@
 				{% endfor %}
 			</p>
 		  {% endif %}
+		  </div>
 		</div>
 
 	  </article>
