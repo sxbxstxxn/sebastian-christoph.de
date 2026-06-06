@@ -1,0 +1,28 @@
+{% extends "wagtailadmin/base.html" %}
+{% load wagtailadmin_tags %}
+
+{% block titletag %}Instagram-ID zur&uuml;cksetzen{% endblock %}
+
+{% block content %}
+  {% include "wagtailadmin/shared/header.html" with title="Instagram-ID zur&uuml;cksetzen" icon="warning" %}
+
+  <div class="nice-padding">
+    <p>
+      Soll die gespeicherte Instagram Media-ID f&uuml;r
+      <strong>{{ page.title }}</strong>
+      wirklich gel&ouml;scht werden?
+    </p>
+    <p>
+      Der bestehende Instagram-Post wird dadurch nicht gel&ouml;scht. Der Beitrag kann danach beim n&auml;chsten
+      Ver&ouml;ffentlichen erneut auf Instagram gepostet werden.
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="button button-longrunning" data-clicked-text="Setze zur&uuml;ck...">
+        Instagram-ID zur&uuml;cksetzen
+      </button>
+      <a href="{% url 'wagtailadmin_pages:edit' page.id %}" class="button button-secondary">Abbrechen</a>
+    </form>
+  </div>
+{% endblock %}
