@@ -15,6 +15,10 @@ class FacebookPublishError(Exception):
     pass
 
 
+class FacebookInvalidParameterError(FacebookPublishError):
+    pass
+
+
 class InstagramPublishError(Exception):
     pass
 
@@ -102,14 +106,28 @@ def publish_page_to_facebook(page, request=None):
     page_url = get_public_page_url(page, request)
     refresh_facebook_link_preview(page_url, access_token)
 
+    post_data = {
+        "message": build_facebook_message(page),
+        "link": page_url,
+        "access_token": access_token,
+        **get_facebook_backdate_params(page),
+    }
+
+    try:
+        return create_facebook_feed_post(page_id, access_token, post_data)
+    except FacebookInvalidParameterError:
+        if "backdated_time" not in post_data:
+            raise
+
+        post_data.pop("backdated_time", None)
+        post_data.pop("backdated_time_granularity", None)
+        return create_facebook_feed_post(page_id, access_token, post_data)
+
+
+def create_facebook_feed_post(page_id, access_token, post_data):
     response = requests.post(
         f"https://graph.facebook.com/{FACEBOOK_GRAPH_VERSION}/{page_id}/feed",
-        data={
-            "message": build_facebook_message(page),
-            "link": page_url,
-            "access_token": access_token,
-            **get_facebook_backdate_params(page),
-        },
+        data=post_data,
         timeout=15,
     )
 
@@ -123,6 +141,11 @@ def publish_page_to_facebook(page, request=None):
     if response.status_code >= 400 or "error" in payload:
         error_payload = payload.get("error", payload)
         message = error_payload.get("message", str(error_payload))
+        error_code = error_payload.get("code")
+
+        if error_code == 100 or message.lower() == "invalid parameter":
+            raise FacebookInvalidParameterError(message)
+
         raise FacebookPublishError(message)
 
     post_id = payload.get("id")
