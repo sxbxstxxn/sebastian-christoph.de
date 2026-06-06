@@ -13,6 +13,18 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
 	<link rel="apple-touch-icon" href="{% static 'favicon/apple-touch-icon.png' %}">
 	<link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">  
+  {% if google_analytics_id %}
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
+    </script>
+  {% endif %}
   {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -45,12 +57,27 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <span>© {% now "Y" %} Sebastian Christoph</span>
-    <span class="footer-links"><a href="/kontakt/">Kontakt</a> · <a href="/impressum/">Impressum</a> · <a href="/impressum/#datenschutz">Datenschutz</a></span>
+    <span class="footer-links"><a href="/kontakt/">Kontakt</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></span>
   </div>
 </footer>
+
+{% if google_analytics_id %}
+<div class="cookie-consent" data-analytics-id="{{ google_analytics_id }}" hidden>
+  <div class="cookie-consent-inner">
+    <p>Ich nutze Google Analytics, um zu verstehen, welche Inhalte gelesen werden. Dabei werden Cookies erst nach deiner Zustimmung gesetzt.</p>
+    <div class="cookie-consent-actions">
+      <button class="button secondary" type="button" data-consent-deny>Ablehnen</button>
+      <button class="button" type="button" data-consent-accept>Akzeptieren</button>
+    </div>
+  </div>
+</div>
+{% endif %}
 
 <script src="{% static 'js/lightbox.js' %}"></script>
 <script src="{% static 'js/menu.js' %}"></script>
 <script src="{% static 'js/external-links.js' %}"></script>
+{% if google_analytics_id %}
+<script src="{% static 'js/analytics-consent.js' %}"></script>
+{% endif %}
 </body>
 </html>

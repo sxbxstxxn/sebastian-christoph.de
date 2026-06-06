@@ -19,6 +19,11 @@ urlpatterns = [
         TemplateView.as_view(template_name="content/impressum.html"),
         name="impressum",
     ),
+    path(
+        "datenschutz/",
+        TemplateView.as_view(template_name="content/datenschutz.html"),
+        name="datenschutz",
+    ),
 ]
 
 if settings.DEBUG:
