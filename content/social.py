@@ -1,7 +1,7 @@
 import os
 import time
 from datetime import datetime
-from urllib.parse import urljoin
+from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
 import requests
 from django.conf import settings
@@ -41,6 +41,29 @@ def get_public_page_url(page, request=None):
 def get_public_media_url(path):
     base_url = os.getenv("PUBLIC_SITE_URL") or settings.WAGTAILADMIN_BASE_URL
     return urljoin(base_url.rstrip("/") + "/", path.lstrip("/"))
+
+
+def add_url_query_params(url, params):
+    parts = urlsplit(url)
+    query_params = dict(parse_qsl(parts.query, keep_blank_values=True))
+    query_params.update(params)
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            parts.path,
+            urlencode(query_params),
+            parts.fragment,
+        )
+    )
+
+
+def get_facebook_page_url(page, request=None):
+    url = get_public_page_url(page, request)
+    revision_time = getattr(page, "latest_revision_created_at", None)
+    cachebuster = revision_time.strftime("%Y%m%d%H%M%S") if revision_time else str(page.pk)
+
+    return add_url_query_params(url, {"fb_preview": cachebuster})
 
 
 def build_facebook_message(page):
@@ -113,7 +136,7 @@ def publish_page_to_facebook(page, request=None):
             "FACEBOOK_PAGE_ID und FACEBOOK_PAGE_ACCESS_TOKEN muessen gesetzt sein."
         )
 
-    page_url = get_public_page_url(page, request)
+    page_url = get_facebook_page_url(page, request)
     refresh_facebook_link_preview(page_url, access_token)
 
     post_data = {
